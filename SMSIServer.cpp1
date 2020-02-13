@@ -1,0 +1,113 @@
+/*
+'=======================================================================================
+'= Arquivo: SMSIServer.cpp
+'= Função:  arquivo principal do programa - disponibiliza a funcao
+'=			_tmain() - MFC
+'= Autor:   Getson Miranda
+'= Data:    20/10/2003
+'=======================================================================================
+*/
+// SMSIServer.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "SMSIServer.h"
+#include "SMSIServerApp.h"
+#include "mib.h"
+#include "LogFile.h"
+#include "DataHora.h"
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+// The one and only application object
+
+// Aplicacao com acesso a MFC
+CWinApp theApp;
+
+// Suporte ao standard ::in ::out objetos do c++
+using namespace std;
+
+/*
+'=====================================================================
+'=== inicializador dos servicos da aplicacao
+'
+'Objetivo:	trabalhar com os parametros para execucao como servico do windows
+'			
+'Entrada.:	-i instala o programa como servico do windows
+'			-u remove o programa com servico do windows, nao apaga
+'			   o arquivo executavel
+'			-v devolve a versao do servico em execucao, quando esse
+'			   ja estiver instalado
+'			Sem parametros executa o robo como uma aplicacao 32Bit console
+'          
+'Saida...:	no prompt de comando pode exibir
+'			informa se o servico esta instalado ou nao
+'			informa a versao do serviso em execuacao, caso ja steja instalado
+'			informa se o servico foi desinstalado com sucesso
+'			Analisar o arquivo de LOG
+'=====================================================================
+*/
+int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
+{
+	// initialize MFC and print and error on failure
+	if (!AfxWinInit(::GetModuleHandle(NULL), NULL, ::GetCommandLine(), 0))
+	{
+		// TODO: change error code to suit your needs
+		MessageBox(0, "*** Fatal Error: MFC initialization failed! *** For a console application, which does not use the MFC-supplied WinMain function, you must call AfxWinInit directly to initialize MFC. O programa de monitoramento nao pode ser executado, nesta maquina!", "ROBO - MFC", MB_ICONERROR+MB_OK);
+		return 1;
+	}
+
+	/* 
+
+		-i instrui para instalar e registrar o robo como um servico do 
+		   sistema operacional;
+
+		-v devolve o status do servico no prompt de comando, informando tambem 
+		   a versao do robo;
+
+		-u interrompe, remove, e desistala o servico robo, junto ao sistema
+		   operacional;
+
+	*/
+
+
+	/* *********************************************************************************** */
+
+	CMib oMib;
+	char err[255];
+	err[0] = '\0';
+	short ret = oMib.Start(err);
+
+	while(true)
+	{
+		CSMSIServerApp *oTst;
+		oTst = new CSMSIServerApp();
+		while(oTst->smsirun)
+		{
+			oTst->Processamento();
+			oMib.RoboStatus(oTst->smsirun);
+			Sleep(1000);
+			while(oTst->smsirun == 2)
+			{
+				Sleep(1000);
+				oMib.RoboStatus(oTst->AppStatus);
+			}
+		}
+		if( oTst->smsirun == 0)
+			break;
+		delete oTst;
+		Sleep(1000);
+	}
+	oMib.Stop();
+
+	/* *********************************************************************************** */
+
+    // return oAdm.m_Status.dwWin32ExitCode;
+	return 0;
+}
+

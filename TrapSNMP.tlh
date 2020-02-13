@@ -1,0 +1,133 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8447.0 (26abe050).
+//
+// TrapSNMP.tlh
+//
+// C++ source equivalent of Win32 type library TrapSNMP.dll
+// compiler-generated file created 02/02/04 at 17:50:35 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace TrapSNMP {
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("c2c78957-30c4-4937-8e57-1ad961f9fec7"))
+/* dual interface */ _clsTrapSNMP;
+struct /* coclass */ clsTrapSNMP;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(_clsTrapSNMP, __uuidof(_clsTrapSNMP));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("c2c78957-30c4-4937-8e57-1ad961f9fec7"))
+_clsTrapSNMP : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetTRAP_VERSION,put=PutTRAP_VERSION))
+    _bstr_t TRAP_VERSION;
+    __declspec(property(get=GetTRAP_COMUNITY,put=PutTRAP_COMUNITY))
+    _bstr_t TRAP_COMUNITY;
+    __declspec(property(get=GetTRAP_ENTERPRISE,put=PutTRAP_ENTERPRISE))
+    _bstr_t TRAP_ENTERPRISE;
+    __declspec(property(get=GetTRAP_GENTRAP,put=PutTRAP_GENTRAP))
+    _bstr_t TRAP_GENTRAP;
+    __declspec(property(get=GetTRAP_SPECTRAP,put=PutTRAP_SPECTRAP))
+    _bstr_t TRAP_SPECTRAP;
+    __declspec(property(get=GetTRAP_RECEIVER,put=PutTRAP_RECEIVER))
+    _bstr_t TRAP_RECEIVER;
+    __declspec(property(get=GetTRAP_RECEIVER_PORT,put=PutTRAP_RECEIVER_PORT))
+    _bstr_t TRAP_RECEIVER_PORT;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetTRAP_VERSION ( );
+    void PutTRAP_VERSION (
+        _bstr_t TRAP_VERSION );
+    _bstr_t GetTRAP_COMUNITY ( );
+    void PutTRAP_COMUNITY (
+        _bstr_t TRAP_COMUNITY );
+    _bstr_t GetTRAP_ENTERPRISE ( );
+    void PutTRAP_ENTERPRISE (
+        _bstr_t TRAP_ENTERPRISE );
+    _bstr_t GetTRAP_GENTRAP ( );
+    void PutTRAP_GENTRAP (
+        _bstr_t TRAP_GENTRAP );
+    _bstr_t GetTRAP_SPECTRAP ( );
+    void PutTRAP_SPECTRAP (
+        _bstr_t TRAP_SPECTRAP );
+    _bstr_t GetTRAP_RECEIVER ( );
+    void PutTRAP_RECEIVER (
+        _bstr_t TRAP_RECEIVER );
+    _bstr_t GetTRAP_RECEIVER_PORT ( );
+    void PutTRAP_RECEIVER_PORT (
+        _bstr_t TRAP_RECEIVER_PORT );
+    HRESULT EnviarTrap (
+        _bstr_t sTrapID,
+        _bstr_t sMsg );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_TRAP_VERSION (
+        BSTR * TRAP_VERSION ) = 0;
+    virtual HRESULT __stdcall put_TRAP_VERSION (
+        BSTR TRAP_VERSION ) = 0;
+    virtual HRESULT __stdcall get_TRAP_COMUNITY (
+        BSTR * TRAP_COMUNITY ) = 0;
+    virtual HRESULT __stdcall put_TRAP_COMUNITY (
+        BSTR TRAP_COMUNITY ) = 0;
+    virtual HRESULT __stdcall get_TRAP_ENTERPRISE (
+        BSTR * TRAP_ENTERPRISE ) = 0;
+    virtual HRESULT __stdcall put_TRAP_ENTERPRISE (
+        BSTR TRAP_ENTERPRISE ) = 0;
+    virtual HRESULT __stdcall get_TRAP_GENTRAP (
+        BSTR * TRAP_GENTRAP ) = 0;
+    virtual HRESULT __stdcall put_TRAP_GENTRAP (
+        BSTR TRAP_GENTRAP ) = 0;
+    virtual HRESULT __stdcall get_TRAP_SPECTRAP (
+        BSTR * TRAP_SPECTRAP ) = 0;
+    virtual HRESULT __stdcall put_TRAP_SPECTRAP (
+        BSTR TRAP_SPECTRAP ) = 0;
+    virtual HRESULT __stdcall get_TRAP_RECEIVER (
+        BSTR * TRAP_RECEIVER ) = 0;
+    virtual HRESULT __stdcall put_TRAP_RECEIVER (
+        BSTR TRAP_RECEIVER ) = 0;
+    virtual HRESULT __stdcall get_TRAP_RECEIVER_PORT (
+        BSTR * TRAP_RECEIVER_PORT ) = 0;
+    virtual HRESULT __stdcall put_TRAP_RECEIVER_PORT (
+        BSTR TRAP_RECEIVER_PORT ) = 0;
+    virtual HRESULT __stdcall raw_EnviarTrap (
+        BSTR sTrapID,
+        BSTR sMsg ) = 0;
+};
+
+struct __declspec(uuid("8479f918-8c8d-4fe8-be84-f96851f3211f"))
+clsTrapSNMP;
+    // [ default ] interface _clsTrapSNMP
+
+//
+// Wrapper method implementations
+//
+
+#include "TrapSNMP.tli"
+
+} // namespace TrapSNMP
+
+#pragma pack(pop)

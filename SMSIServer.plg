@@ -1,0 +1,65 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SMSIServer - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\getson\LOCALS~1\Temp\RSP4D.tmp" with contents
+[
+/nologo /MTd /W3 /vmg /vmm /GR /GX /ZI /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /FR"Release/" /Fp"Release/SMSIServer.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\smsi\SMSIServerApp.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\getson\LOCALS~1\Temp\RSP4D.tmp" 
+Creating temporary file "C:\DOCUME~1\getson\LOCALS~1\Temp\RSP4E.tmp" with contents
+[
+snmpapi.lib mgmtapi.lib /nologo /subsystem:console /profile /map:"Release/SMSIServer.map" /debug /machine:I386 /out:"Release/SMSIServer.exe" 
+.\Release\Administrativa.obj
+.\Release\ado.obj
+.\Release\DataHora.obj
+.\Release\initfile.obj
+.\Release\LogFile.obj
+.\Release\mib.obj
+.\Release\NTService.obj
+.\Release\Servidores.obj
+.\Release\SMSIServer.obj
+.\Release\SMSIServerApp.obj
+.\Release\StdAfx.obj
+.\Release\Testes.obj
+.\Release\SMSIServer.res
+]
+Creating command line "link.exe @C:\DOCUME~1\getson\LOCALS~1\Temp\RSP4E.tmp"
+<h3>Output Window</h3>
+Compiling...
+SMSIServerApp.cpp
+Linking...
+Creating temporary file "C:\DOCUME~1\getson\LOCALS~1\Temp\RSP50.tmp" with contents
+[
+/o"Release/SMSIServer.bsc" 
+.\Release\StdAfx.sbr
+.\Release\Administrativa.sbr
+.\Release\ado.sbr
+.\Release\DataHora.sbr
+.\Release\initfile.sbr
+.\Release\LogFile.sbr
+.\Release\mib.sbr
+.\Release\NTService.sbr
+.\Release\Servidores.sbr
+.\Release\SMSIServer.sbr
+.\Release\SMSIServerApp.sbr
+.\Release\Testes.sbr]
+Creating command line "bscmake.exe @C:\DOCUME~1\getson\LOCALS~1\Temp\RSP50.tmp"
+Creating browse info file...
+Microsoft Browse Information Maintenance Utility Version 6.00.8168
+Copyright (C) Microsoft Corp 1990-1998. All rights reserved.
+
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+SMSIServer.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

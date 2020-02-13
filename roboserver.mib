@@ -1,0 +1,92 @@
+ PROCESS-MONITOR-TRAP-MIB DEFINITIONS ::= BEGIN
+
+
+   IMPORTS
+       MODULE-IDENTITY, OBJECT-TYPE,
+       Counter32, Gauge32,
+       NOTIFICATION-TYPE,
+       enterprises, Unsigned32           FROM SNMPv2-SMI
+       MODULE-COMPLIANCE, OBJECT-GROUP,
+       NOTIFICATION-GROUP                FROM SNMPv2-CONF
+       DisplayString                     FROM RFC1213-MIB
+       ;
+
+   nct  OBJECT IDENTIFIER ::= { enterprises 2854 }
+   nctmibs OBJECT IDENTIFIER ::= { nct 6 }
+
+   processMonitorTrapMIB MODULE-IDENTITY
+
+   LAST-UPDATED "0101230000Z"
+
+   ORGANIZATION "High Consulting"
+
+   CONTACT-INFO
+       "
+       Getson Miranda
+       High Consulting
+       Av. Libero Badaro 425
+       19o. andar
+       Sao Paulo - SP - Brasil
+       Tel: +55 3104-4010
+       Fax: +55 3104-4010
+       E-mail: highconsulting@highconsulting.com.br
+       "
+
+   DESCRIPTION
+       "Sistema de Monitoramento Site Institucional Banco Sudameris
+       "
+         --  Revision history
+         REVISION     "0101230000Z"  -- 23 January 2001, midnight
+         DESCRIPTION  "Initial Version"
+
+   ::= { nctmibs 2 }
+
+--   processMonitorMib OBJECT IDENTIFIER ::= { nctmibs 2 }
+
+   -- MIB variables used as varbinds
+   processMonitorMibObjects OBJECT IDENTIFIER ::= { processMonitorTrapMIB 1 }
+
+   processName     OBJECT-TYPE
+       SYNTAX	   DisplayString
+       MAX-ACCESS  accessible-for-notify
+       STATUS	   current
+       DESCRIPTION
+	   "The computer name on which this event was generated."
+
+   ::= { processMonitorMibObjects 1 }
+
+
+   -- TRAP definitions
+
+   processMonitorMibTraps OBJECT IDENTIFIER ::= { processMonitorTrapMIB 2 }
+
+   processMonitorTrapDef OBJECT IDENTIFIER ::= { processMonitorMibTraps 1 }
+
+   processMonitorGeneralTrap     NOTIFICATION-TYPE
+        OBJECTS { processName }
+        STATUS  current
+	DESCRIPTION
+	    "The TRAP generated from a watched process changing state."
+   ::= { processMonitorTrapDef 1 }
+
+  -- conformance information
+
+   processMonitorConformance OBJECT IDENTIFIER ::= { processMonitorTrapMIB 3 }
+
+   processMonitorGroups OBJECT IDENTIFIER ::= { processMonitorConformance 1 }
+
+   -- units of conformance
+
+         nctProcessMonitorNotificationsGroup NOTIFICATION-GROUP
+             NOTIFICATIONS {
+	        processMonitorGeneralTrap
+                }
+             STATUS        current
+             DESCRIPTION
+                 "The collection of process monitor based notifications."
+         ::= { processMonitorGroups 1 }
+
+
+END
+
+

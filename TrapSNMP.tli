@@ -1,0 +1,102 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8447.0 (26abe050).
+//
+// TrapSNMP.tli
+//
+// Wrapper implementations for Win32 type library TrapSNMP.dll
+// compiler-generated file created 02/02/04 at 17:50:35 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface _clsTrapSNMP wrapper method implementations
+//
+
+inline _bstr_t _clsTrapSNMP::GetTRAP_VERSION ( ) {
+    BSTR _result;
+    HRESULT _hr = get_TRAP_VERSION(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _clsTrapSNMP::PutTRAP_VERSION ( _bstr_t TRAP_VERSION ) {
+    HRESULT _hr = put_TRAP_VERSION(TRAP_VERSION);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _clsTrapSNMP::GetTRAP_COMUNITY ( ) {
+    BSTR _result;
+    HRESULT _hr = get_TRAP_COMUNITY(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _clsTrapSNMP::PutTRAP_COMUNITY ( _bstr_t TRAP_COMUNITY ) {
+    HRESULT _hr = put_TRAP_COMUNITY(TRAP_COMUNITY);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _clsTrapSNMP::GetTRAP_ENTERPRISE ( ) {
+    BSTR _result;
+    HRESULT _hr = get_TRAP_ENTERPRISE(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _clsTrapSNMP::PutTRAP_ENTERPRISE ( _bstr_t TRAP_ENTERPRISE ) {
+    HRESULT _hr = put_TRAP_ENTERPRISE(TRAP_ENTERPRISE);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _clsTrapSNMP::GetTRAP_GENTRAP ( ) {
+    BSTR _result;
+    HRESULT _hr = get_TRAP_GENTRAP(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _clsTrapSNMP::PutTRAP_GENTRAP ( _bstr_t TRAP_GENTRAP ) {
+    HRESULT _hr = put_TRAP_GENTRAP(TRAP_GENTRAP);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _clsTrapSNMP::GetTRAP_SPECTRAP ( ) {
+    BSTR _result;
+    HRESULT _hr = get_TRAP_SPECTRAP(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _clsTrapSNMP::PutTRAP_SPECTRAP ( _bstr_t TRAP_SPECTRAP ) {
+    HRESULT _hr = put_TRAP_SPECTRAP(TRAP_SPECTRAP);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _clsTrapSNMP::GetTRAP_RECEIVER ( ) {
+    BSTR _result;
+    HRESULT _hr = get_TRAP_RECEIVER(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _clsTrapSNMP::PutTRAP_RECEIVER ( _bstr_t TRAP_RECEIVER ) {
+    HRESULT _hr = put_TRAP_RECEIVER(TRAP_RECEIVER);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _clsTrapSNMP::GetTRAP_RECEIVER_PORT ( ) {
+    BSTR _result;
+    HRESULT _hr = get_TRAP_RECEIVER_PORT(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _clsTrapSNMP::PutTRAP_RECEIVER_PORT ( _bstr_t TRAP_RECEIVER_PORT ) {
+    HRESULT _hr = put_TRAP_RECEIVER_PORT(TRAP_RECEIVER_PORT);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _clsTrapSNMP::EnviarTrap ( _bstr_t sTrapID, _bstr_t sMsg ) {
+    HRESULT _hr = raw_EnviarTrap(sTrapID, sMsg);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
